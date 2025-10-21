@@ -10,6 +10,9 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+const userRoutes = require('./routes/user');
+app.use('/api/user', userRoutes);
+
 app.get('/', (req, res) => {
     // res.send('<p>Welcome to node JS</p>');
     res.sendFile(path.join(__dirname, 'public','index.html'));
