@@ -5,7 +5,7 @@ const path = require('path');
 
 
 const app = express();
-const PORT = 3000;
+const PORT = 8086;
 
 app.use(cors());
 app.use(bodyParser.json());
