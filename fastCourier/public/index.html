@@ -3,9 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Node.js Server Status</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Using Poppins font for modern touch */
+            font-family: 'Poppins', sans-serif;
+            /* Deeper, more tech-like gradient */
+            background: linear-gradient(135deg, #1d2b3a, #2c5364); /* Dark Blue/Teal Gradient */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrollbar due to effects */
+        }
+
+        /* Container (Glassmorphism Card) */
+        .container {
+            background: rgba(255, 255, 255, 0.05); /* Lighter transparency */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+            border-radius: 16px;
+            padding: 50px 70px;
+            text-align: center;
+            /* Stronger 3D shadow effect */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(15px); /* Stronger blur for glass effect */
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+        }
+
+        .container:hover {
+            transform: scale(1.03); /* Subtle zoom effect */
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Logo/Icon Styling */
+        .nodejs-icon {
+            font-size: 4rem; /* Larger icon */
+            color: #68A063; /* Node.js Official Green */
+            margin-bottom: 10px;
+            /* Text shadow for a subtle glow */
+            text-shadow: 0 0 10px rgba(104, 160, 99, 0.5);
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 2.8rem; /* Bigger title */
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            font-weight: 800; /* Extra bold */
+        }
+
+        /* Subheading */
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #bbdefb; /* Light accent color */
+            margin-bottom: 25px;
+        }
+
+        /* Paragraph text */
+        p {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 12px 30px;
+            background-color: #68A063; /* Node.js Green */
+            color: #1d2b3a; /* Dark text for contrast */
+            border: none;
+            border-radius: 50px; /* Pill shape */
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(104, 160, 99, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #7BB875;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(104, 160, 99, 0.6);
+        }
+    </style>
 </head>
 <body>
-    <p>Welcome to node JS.in html</p>
+    <div class="container">
+        <div class="nodejs-icon">💻</div>
+        <h1>Node.js Status</h1>
+        <h2>A Scalable JavaScript Runtime Environment</h2>
+        <p>This page is successfully being rendered via an application powered by **Node.js** and basic HTML/CSS.</p>
+        <button class="btn">View API Endpoints</button>
+    </div>
 </body>
 </html>
