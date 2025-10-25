@@ -84,6 +84,50 @@ router.delete('/delete/:id', (req, res) => {
 
 
 
+
+// 🔵 LOGIN USER
+router.post('/login', (req, res) => {
+    const { email, password } = req.body;
+
+    const sql = 'SELECT * FROM user WHERE email = ?';
+    db.query(sql, [email], async (err, results) => {
+        if (err) return res.status(500).send(err);
+        if (results.length === 0) return res.status(401).send({ message: 'Invalid email or password' });
+
+        const user = results[0];
+
+        // ✅ Compare password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(401).send({ message: 'Invalid email or password' });
+
+
+
+        // ✅ Generate JWT Token
+        const token = jwt.sign(
+            { id: user.id, email: user.email, role: user.role },
+            JWT_SECRET,
+            { expiresIn: '1h' } // expires in 1 hour
+        );
+
+
+
+
+
+        res.send({
+            message: 'Login successful!',
+            token,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                photo: user.photo
+            }
+        });
+    });
+});
+
+
 // 🟢 Serve static files from uploads/user
 router.use('/uploads/user', express.static(path.join(__dirname, '../uploads/user')));
 
